@@ -21,7 +21,7 @@ public class GetProjets extends GetProjetBase implements GetProjetInputBoundary 
 
     public void execute(GetProjetRequest request) {
         ProjetsResponse.ProjetsResponseBuilder result = ProjetsResponse.builder();
-        offerGateway.getAllExcludingCancelled().forEach(offer -> result.addProjet(makeOfferResponse(offer, clock)));
+        offerGateway.getAllProjects().forEach(offer -> result.addTask(makeOfferResponse(offer, clock)));
 
         presenter.present(result.build());
     }

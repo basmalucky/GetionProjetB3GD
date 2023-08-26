@@ -21,7 +21,7 @@ public class GetFonctionnalites extends GetFonctionnaliteBase implements GetFonc
 
     public void execute(GetFonctionnaliteRequest request) {
         FonctionnalitesResponse.FonctionnalitesResponseBuilder result = FonctionnalitesResponse.builder();
-        offerGateway.getAllExcludingCancelled().forEach(offer -> result.addFonctionnalite(makeOfferResponse(offer, clock)));
+        offerGateway.getAllFonctionnalites().forEach(offer -> result.addFonctionnalite(makeOfferResponse(offer, clock)));
 
         presenter.present(result.build());
     }

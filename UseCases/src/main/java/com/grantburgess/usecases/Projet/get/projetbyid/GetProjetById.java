@@ -8,6 +8,7 @@ import com.grantburgess.ports.usescases.Clock;
 import com.grantburgess.ports.usescases.Projet.get.Projetbyid.GetProjetByIdInputBoundary;
 import com.grantburgess.ports.usescases.Projet.get.Projetbyid.GetProjetRequest;
 import com.grantburgess.usecases.Projet.get.GetProjetBase;
+import com.grantburgess.ports.database.ProjetGateway.NotFound;
 
 public class GetProjetById extends GetProjetBase implements GetProjetByIdInputBoundary {
     private final ProjetOutputBoundary presenter;

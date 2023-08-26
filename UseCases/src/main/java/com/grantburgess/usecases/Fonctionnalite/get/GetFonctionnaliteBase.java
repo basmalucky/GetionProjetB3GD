@@ -12,10 +12,10 @@ public abstract class GetFonctionnaliteBase {
         FonctionnaliteResponse.Status offerStatus = computeStatus(offer, clock);
         return new FonctionnaliteResponse(
                 offer.getId(),
-                offer.getName(),
+                offer.getNom(),
                 offer.getDescription(),
-                offer.getStartDate(),
-                offer.getEndDate()
+                offer.getDateDebut(),
+                offer.getDateFin()
         );
     }
 
@@ -28,7 +28,7 @@ public abstract class GetFonctionnaliteBase {
 
     private static FonctionnaliteResponse.Status computeStatus(Fonctionnalite offer, Clock clock) {
 
-        return offer.getEndDate().isAfter(clock.now()) ?
+        return offer.getDateFin().isAfter(clock.now()) ?
                 FonctionnaliteResponse.Status.ACTIVE :
                 FonctionnaliteResponse.Status.EXPIRED;
     }

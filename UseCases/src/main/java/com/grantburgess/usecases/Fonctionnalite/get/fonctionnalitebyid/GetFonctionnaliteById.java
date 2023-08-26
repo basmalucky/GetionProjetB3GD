@@ -24,7 +24,7 @@ public class GetFonctionnaliteById extends GetFonctionnaliteBase implements GetF
         Fonctionnalite offer = offerGateway.getById(request.getId());
 
         if (offer == null)
-            throw new FonctionnaliteGateway.fonctionnaliteNotFoundException();
+            throw new FonctionnaliteGateway.FonctionnaliteNotFoundException();
 
         presenter.present(makeOfferResponse(offer, clock));
     }

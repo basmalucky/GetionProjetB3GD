@@ -11,6 +11,9 @@ public class Lot {
     private String description;
   private UUID idProjet;
 
+    public Lot(UUID id, String nom, String description, LocalDate dateDebut, LocalDate dateFin) {
+    }
+
     public UUID getId() {
         return id;
     }

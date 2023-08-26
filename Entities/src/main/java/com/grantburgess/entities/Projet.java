@@ -23,6 +23,9 @@ public class Projet
         this.description = description;
     }
 
+    public Projet(UUID id, String name, String description, LocalDate startDate, LocalDate endDate) {
+    }
+
     public UUID getId() {
         return id;
     }
@@ -61,6 +64,10 @@ public class Projet
 
     public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
+    }
+
+    public String getName() {
+        return null;
     }
 /* public UUID getId() {
         return id;

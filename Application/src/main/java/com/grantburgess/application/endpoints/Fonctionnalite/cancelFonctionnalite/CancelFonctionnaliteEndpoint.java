@@ -1,8 +1,8 @@
-/*package com.grantburgess.application.endpoints.Fonctionnalite.cancelFonctionnalite;
+package com.grantburgess.application.endpoints.Fonctionnalite.cancelFonctionnalite;
 
 import com.grantburgess.application.endpoints.BaseEndpoint;
-import com.grantburgess.ports.usescases.Task.cancelTask.CancelTaskInputBoundary;
-import com.grantburgess.ports.usescases.Task.cancelTask.CancelTaskRequest;
+import com.grantburgess.ports.usescases.Fonctionnalite.cancelFonctionnalite.CancelFonctionnaliteInputBoundary;
+import com.grantburgess.ports.usescases.Fonctionnalite.cancelFonctionnalite.CancelFonctionnaliteRequest;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,21 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/Tasks")
+@RequestMapping("/api/v1/Fonctionnalites")
 public class CancelFonctionnaliteEndpoint implements BaseEndpoint {
-    private CancelTaskInputBoundary useCase;
+    private CancelFonctionnaliteInputBoundary useCase;
 
-    public CancelFonctionnaliteEndpoint(CancelTaskInputBoundary useCase) {
+    public CancelFonctionnaliteEndpoint(CancelFonctionnaliteInputBoundary useCase) {
         this.useCase = useCase;
     }
 
-    @PostMapping("/{taskId}/cancel")
-    @ApiOperation(value = "Cancel Task", response = ResponseEntity.class)
-    public ResponseEntity execute(@PathVariable(value = "taskId") String taskId)
+    @PostMapping("/{fonctionnaliteId}/cancel")
+    @ApiOperation(value = "Cancel Fonctionnalite", response = ResponseEntity.class)
+    public ResponseEntity execute(@PathVariable(value = "fonctionnaliteId") String fonctionnaliteId)
     {
-        useCase.execute(CancelTaskRequest.builder().taskId(UUID.fromString(taskId)).build());
+        useCase.execute(CancelFonctionnaliteRequest.builder().fonctionnaliteId(UUID.fromString(fonctionnaliteId)).build());
 
         return ResponseEntity.noContent().build();
     }
 }
-*/

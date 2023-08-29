@@ -18,7 +18,7 @@ public class JpaDatabase implements Database {
     public JpaDatabase(TaskRepository taskRepository) {
         taskGateway = new JpaTaskGateway(taskRepository);
     }
-    public JpaDatabase(ProjetRepository projetRepository) { projetGateway = (ProjetGateway) new JpaProjetGateway(projetRepository, projetRepository);}
+    public JpaDatabase(ProjetRepository projetRepository) { projetGateway = new JpaProjetGateway(projetRepository);}
     public JpaDatabase(LotRepository lotRepository) { lotGateway = new JpaLotGateway(lotRepository);}
     public JpaDatabase(FonctionnaliteRepository fonctionnaliteRepository) {
         fonctionnaliteGateway = new JpaFonctionnaliteGateway(fonctionnaliteRepository);
@@ -29,17 +29,17 @@ public class JpaDatabase implements Database {
 
     @Override
     public ProjetGateway PROJET_GATEWAY() {
-        return null;
+        return projetGateway;
     }
 
     @Override
     public LotGateway LOT_GATEWAY() {
-        return null;
+        return lotGateway;
     }
 
     @Override
     public FonctionnaliteGateway FONCTIONNALITE_GATEWAY() {
-        return null;
+        return fonctionnaliteGateway;
     }
 
 }

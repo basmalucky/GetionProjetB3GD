@@ -3,8 +3,6 @@ package com.grantburgess.application.endpoints.Projet.deleteProjet;
 import com.grantburgess.application.endpoints.BaseEndpoint;
 import com.grantburgess.ports.usescases.Projet.delete.DeleteProjetRequest;
 import com.grantburgess.ports.usescases.Projet.delete.DeleteProjetInputBoundary;
-import com.grantburgess.ports.usescases.Task.delete.DeleteTaskInputBoundary;
-import com.grantburgess.ports.usescases.Task.delete.DeleteTaskRequest;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

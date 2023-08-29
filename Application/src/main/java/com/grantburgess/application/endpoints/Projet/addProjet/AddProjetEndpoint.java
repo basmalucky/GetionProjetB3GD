@@ -1,10 +1,10 @@
 package com.grantburgess.application.endpoints.Projet.addProjet;
 
 import com.grantburgess.application.endpoints.BaseEndpoint;
-import com.grantburgess.ports.presenters.Task.TaskCreatedOutputBoundary;
-import com.grantburgess.ports.presenters.Task.TaskCreatedViewModel;
-import com.grantburgess.ports.usescases.Task.addTask.AddTaskInputBoundary;
-import com.grantburgess.ports.usescases.Task.addTask.AddTaskRequest;
+import com.grantburgess.ports.presenters.Projet.ProjetCreatedOutputBoundary;
+import com.grantburgess.ports.presenters.Projet.ProjetCreatedViewModel;
+import com.grantburgess.ports.usescases.Projet.addProjet.AddProjetInputBoundary;
+import com.grantburgess.ports.usescases.Projet.addProjet.AddProjetRequest;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,19 +19,19 @@ import java.text.MessageFormat;
 @RestController
 @RequestMapping("/api/v1/Projet")
 public class AddProjetEndpoint implements BaseEndpoint {
-    private final AddTaskInputBoundary useCase;
-    private final TaskCreatedOutputBoundary presenter;
+    private final AddProjetInputBoundary useCase;
+    private final ProjetCreatedOutputBoundary presenter;
 
-    public AddProjetEndpoint(AddTaskInputBoundary useCase, TaskCreatedOutputBoundary presenter) {
+    public AddProjetEndpoint(AddProjetInputBoundary useCase, ProjetCreatedOutputBoundary presenter) {
         this.useCase = useCase;
         this.presenter = presenter;
     }
 
     @PostMapping
-    @ApiOperation(value = "Add Task", response = TaskCreatedViewModel.class)
+    @ApiOperation(value = "Add Projet", response = ProjetCreatedViewModel.class)
     public ResponseEntity execute(@RequestBody @Valid NewProjetRequest request) {
         useCase.execute(
-                AddTaskRequest
+                AddProjetRequest
                         .builder()
                         .name(request.getName())
                         .description(request.getDescription())
@@ -43,7 +43,7 @@ public class AddProjetEndpoint implements BaseEndpoint {
         return ResponseEntity
                 .created(
                         URI.create(
-                                MessageFormat.format("/api/v1/Tasks/{0}", presenter.getViewModel().getId())
+                                MessageFormat.format("/api/v1/Projets/{0}", presenter.getViewModel().getId())
                         )
                 )
                 .body(presenter.getViewModel());

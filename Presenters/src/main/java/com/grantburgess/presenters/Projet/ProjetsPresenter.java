@@ -13,7 +13,7 @@ public class ProjetsPresenter extends BaseProjetPresenter implements ProjetsOutp
 
     public void present(ProjetsResponse responseModel) {
         ProjetsViewModel.ProjetsViewModelBuilder ProjetsViewModelBuilder = ProjetsViewModel.builder();
-        responseModel.getTasks()
+        responseModel.getProjets()
                 .stream()
                 .map(BaseProjetPresenter::mapToProjetViewModel)
                 .forEach(ProjetsViewModelBuilder::addProjetsViewModel);

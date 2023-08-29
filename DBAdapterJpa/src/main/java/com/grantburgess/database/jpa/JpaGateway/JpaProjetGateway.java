@@ -18,7 +18,7 @@ public class JpaProjetGateway implements ProjetGateway {
 
     private final ProjetRepository projetRepository;
 
-    public JpaProjetGateway(final ProjetRepository lotRepository, com.grantburgess.database.jpa.repositories.ProjetRepository projetRepository) {
+    public JpaProjetGateway(final ProjetRepository projetRepository) {
         ProjetRepository ProjetRepository = projetRepository;
         this.projetRepository = projetRepository;
     }
@@ -104,13 +104,13 @@ public class JpaProjetGateway implements ProjetGateway {
         return projetRepository.existsByNameAndCancelledDateIsNull(name);
     }
 
-    @Override
-    public Collection<Projet> getLotsByProjetId(UUID projetId) {
+    //@Override
+    public Collection<Projet> getLotsByProjetId(UUID projectId) {
         return null;
     }
 
-    @Override
-    public Collection<Projet> getProjetsByLotId(UUID projetId) {
+    //@Override
+    public Collection<Projet> getProjetsByLotId(UUID projectId) {
         return null;
     }
 }

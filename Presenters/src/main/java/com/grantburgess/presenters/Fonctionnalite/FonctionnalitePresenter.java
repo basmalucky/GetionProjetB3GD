@@ -12,7 +12,7 @@ public class FonctionnalitePresenter extends BaseFonctionnalitePresenter impleme
     }
 
     public void present(FonctionnaliteResponse responseModel) {
-        viewModel = mapToTaskViewModel(responseModel);
+        viewModel = mapToFonctionnaliteViewModel(responseModel);
     }
 
 

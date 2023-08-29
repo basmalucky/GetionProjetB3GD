@@ -26,7 +26,7 @@ public class Lot {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;
-      //this.idProjet = idProjet;
+     // this.idProjet = idProjet;
     }
 
     public void setId(UUID id) {

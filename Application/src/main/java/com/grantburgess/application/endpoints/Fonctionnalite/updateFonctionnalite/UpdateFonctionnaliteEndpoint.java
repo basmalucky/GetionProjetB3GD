@@ -1,10 +1,10 @@
-/*package com.grantburgess.application.endpoints.Fonctionnalite.updateFonctionnalite;
+package com.grantburgess.application.endpoints.Fonctionnalite.updateFonctionnalite;
 
 import com.grantburgess.application.endpoints.BaseEndpoint;
-import com.grantburgess.ports.presenters.Task.TaskCreatedViewModel;
-import com.grantburgess.ports.presenters.Task.TaskOutputBoundary;
-import com.grantburgess.ports.usescases.Task.updateTask.UpdateTaskInputBoundary;
-import com.grantburgess.ports.usescases.Task.updateTask.UpdateTaskRequest;
+import com.grantburgess.ports.presenters.Fonctionnalite.FonctionnaliteCreatedViewModel;
+import com.grantburgess.ports.presenters.Fonctionnalite.FonctionnaliteOutputBoundary;
+import com.grantburgess.ports.usescases.Fonctionnalite.updateFonctionnalite.UpdateFonctionnaliteInputBoundary;
+import com.grantburgess.ports.usescases.Fonctionnalite.updateFonctionnalite.UpdateFonctionnaliteRequest;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.MediaType;
@@ -17,24 +17,24 @@ import java.text.MessageFormat;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/api/v1/Tasks", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/api/v1/Fonctionnalites", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UpdateFonctionnaliteEndpoint implements BaseEndpoint {
-    private final UpdateTaskInputBoundary useCase;
-    private final TaskOutputBoundary presenter;
+    private final UpdateFonctionnaliteInputBoundary useCase;
+    private final FonctionnaliteOutputBoundary presenter;
 
-    public UpdateFonctionnaliteEndpoint(UpdateTaskInputBoundary useCase, TaskOutputBoundary presenter) {
+    public UpdateFonctionnaliteEndpoint(UpdateFonctionnaliteInputBoundary useCase, FonctionnaliteOutputBoundary presenter) {
         this.useCase = useCase;
         this.presenter = presenter;
 
     }
 
-    @PutMapping("update/{taskId}")
-    @ApiOperation(value = "Add Task", response = TaskCreatedViewModel.class)
-    public ResponseEntity execute(@ApiParam(value = "ID of the offer that needs to be fetched", required = true) @PathVariable(value = "taskId") String taskId, @RequestBody @Valid NewUpdateFonctionnaliteRequest request) {
+    @PutMapping("update/{fonctionnaliteId}")
+    @ApiOperation(value = "Add Fonctionnalite", response = FonctionnaliteCreatedViewModel.class)
+    public ResponseEntity execute(@ApiParam(value = "ID of the offer that needs to be fetched", required = true) @PathVariable(value = "fonctionnaliteId") String fonctionnaliteId, @RequestBody @Valid NewUpdateFonctionnaliteRequest request) {
         useCase.execute(
-                UpdateTaskRequest
+                UpdateFonctionnaliteRequest
                         .builder()
-                        .id(UUID.fromString(taskId))
+                        .id(UUID.fromString(fonctionnaliteId))
                         .name(request.getName())
                         .description(request.getDescription())
                         .startDate(request.getDuration().getStartDate())
@@ -45,10 +45,9 @@ public class UpdateFonctionnaliteEndpoint implements BaseEndpoint {
         return ResponseEntity
                 .created(
                         URI.create(
-                                MessageFormat.format("/api/v1/Tasks/{0}", presenter.getViewModel().getId())
+                                MessageFormat.format("/api/v1/Fonctionnalites/{0}", presenter.getViewModel().getId())
                         )
                 )
                 .body(presenter.getViewModel());
     }
 }
-*/

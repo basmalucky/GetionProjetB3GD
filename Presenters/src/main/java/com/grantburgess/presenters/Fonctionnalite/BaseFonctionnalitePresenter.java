@@ -10,17 +10,17 @@ public class BaseFonctionnalitePresenter {
 
     protected BaseFonctionnalitePresenter() { }
 
-    public static FonctionnaliteViewModel mapToTaskViewModel(FonctionnaliteResponse responseModel) {
+    public static FonctionnaliteViewModel mapToFonctionnaliteViewModel(FonctionnaliteResponse responseModel) {
         return FonctionnaliteViewModel
                 .builder()
                 .id(responseModel.getId().toString())
                 .name(responseModel.getName())
                 .description(responseModel.getDescription())
-                .duration(getTaskDuration(responseModel))
+                .duration(getFonctionnaliteDuration(responseModel))
                 .build();
     }
 
-    private static FonctionnaliteViewModel.Duration getTaskDuration(FonctionnaliteResponse responseModel) {
+    private static FonctionnaliteViewModel.Duration getFonctionnaliteDuration(FonctionnaliteResponse responseModel) {
         String startDate = responseModel.getStartDate().format(DATE_TIME_FORMATTER);
         String endDate = responseModel.getEndDate().format(DATE_TIME_FORMATTER);
         return FonctionnaliteViewModel.Duration

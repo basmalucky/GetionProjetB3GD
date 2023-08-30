@@ -3,7 +3,11 @@ package com.grantburgess.usecases.Task.updateTask;
 
 
 import com.grantburgess.entities.Task;
+
+import com.grantburgess.ports.database.FonctionnaliteGateway;
 import com.grantburgess.ports.database.TaskGateway;
+
+import com.grantburgess.ports.presenters.Fonctionnalite.FonctionnaliteOutputBoundary;
 import com.grantburgess.ports.presenters.Task.TaskOutputBoundary;
 import com.grantburgess.ports.usescases.Clock;
 import com.grantburgess.ports.usescases.Task.updateTask.UpdateTaskInputBoundary;
@@ -13,13 +17,18 @@ import com.grantburgess.usecases.Task.get.GetTaskBase;
 
 public class Update extends GetTaskBase implements UpdateTaskInputBoundary {
     private final TaskGateway taskGateway;
+
     private final TaskOutputBoundary presenter;
     private final Clock clock;
-    public Update(TaskOutputBoundary presenter,TaskGateway taskGateway,Clock clock) {
+
+    public Update(TaskOutputBoundary presenter, TaskGateway taskGateway, Clock clock) {
         this.taskGateway = taskGateway;
         this.presenter = presenter;
         this.clock = clock;
     }
+
+
+
 
     public UpdateTaskResponse execute(UpdateTaskRequest request) {
         Task taskToUpdate = taskGateway.getByIdExcludingCancelled(request.getId());

@@ -12,6 +12,9 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(value="/fonctionnalite", description="Operations to manipulate functionnalities", tags = "fonctionnalite")
+@Api(value="/lot", description="Operations to manipulate lots", tags = "lot")
+@Api(value="/projet", description="Operations to manipulate projects", tags = "projet")
 @Api(value="/task", description="Operations to manipulate tasks", tags = "task")
 public interface BaseEndpoint {
     @ExceptionHandler

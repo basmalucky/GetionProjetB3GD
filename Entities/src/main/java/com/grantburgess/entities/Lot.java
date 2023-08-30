@@ -11,6 +11,9 @@ public class Lot {
     private String description;
   private UUID idProjet;
 
+    public Lot(UUID id, String nom, String description, LocalDate dateDebut, LocalDate dateFin) {
+    }
+
     public UUID getId() {
         return id;
     }
@@ -23,7 +26,7 @@ public class Lot {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;
-      //this.idProjet = idProjet;
+     // this.idProjet = idProjet;
     }
 
     public void setId(UUID id) {

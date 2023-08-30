@@ -33,11 +33,11 @@ public class AddProjet implements AddProjetInputBoundary {
 
     private void validateTask(final AddProjetRequest request) {
         if (request.getEndDate().isBefore(request.getStartDate()))
-            throw new ProjetGateway.projetStartDateGreaterThanEndDateException();
+            throw new ProjetGateway.projectStartDateGreaterThanEndDateException();
         if (request.getEndDate().isBefore(clock.now()))
-            throw new ProjetGateway.projetEndDateCannotBeBeforeCurrentSystemDateException();
+            throw new ProjetGateway.projectEndDateCannotBeBeforeCurrentSystemDateException();
         if (ProjetAlreadyExists(request))
-            throw new ProjetGateway.projetNameAlreadyExistsException();
+            throw new ProjetGateway.projectNameAlreadyExistsException();
     }
 
     private boolean ProjetAlreadyExists(final AddProjetRequest request) {

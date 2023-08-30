@@ -3,12 +3,8 @@ package com.grantburgess.application.endpoints.Projet.getProjetbyid;
 import com.grantburgess.application.endpoints.BaseEndpoint;
 import com.grantburgess.ports.presenters.Projet.ProjetOutputBoundary;
 import com.grantburgess.ports.presenters.Projet.ProjetViewModel;
-import com.grantburgess.ports.presenters.Task.TaskOutputBoundary;
-import com.grantburgess.ports.presenters.Task.TaskViewModel;
-import com.grantburgess.ports.usescases.Projet.get.Projetbyid.GetProjetByIdInputBoundary;
+import com.grantburgess.ports.usescases.Projet.get.Projetbyid.GetProjectByIdInputBoundary;
 import com.grantburgess.ports.usescases.Projet.get.Projetbyid.GetProjetRequest;
-import com.grantburgess.ports.usescases.Task.get.Taskbyid.GetTaskByIdInputBoundary;
-import com.grantburgess.ports.usescases.Task.get.Taskbyid.GetTaskRequest;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.MediaType;
@@ -23,18 +19,18 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/api/v1/Projet", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class GetProjetByIdEndpoint implements BaseEndpoint {
-    private final GetProjetByIdInputBoundary useCase;
+    private final GetProjectByIdInputBoundary useCase;
     private final ProjetOutputBoundary presenter;
 
-    public GetProjetByIdEndpoint(GetProjetByIdInputBoundary useCase, ProjetOutputBoundary presenter) {
+    public GetProjetByIdEndpoint(GetProjectByIdInputBoundary useCase, ProjetOutputBoundary presenter) {
         this.useCase = useCase;
         this.presenter = presenter;
     }
 
-    @GetMapping("/{taskId}")
+    @GetMapping("/{projetId}")
     @ApiOperation(value = "Get offer by ID", response = ProjetViewModel.class, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity execute(@ApiParam(value = "ID of the offer that needs to be fetched", required = true) @PathVariable(value = "taskId") String taskId) {
-        useCase.execute(GetProjetRequest.builder().id(UUID.fromString(taskId)).build());
+    public ResponseEntity execute(@ApiParam(value = "ID of the offer that needs to be fetched", required = true) @PathVariable(value = "projetId") String projetId) {
+        useCase.execute(GetProjetRequest.builder().id(UUID.fromString(projetId)).build());
 
         return ResponseEntity.ok(presenter.getViewModel());
     }

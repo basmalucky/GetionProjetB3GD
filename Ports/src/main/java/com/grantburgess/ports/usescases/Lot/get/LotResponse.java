@@ -17,4 +17,7 @@ public class LotResponse {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public enum Status {
+        ACTIVE, EXPIRED, CANCELLED
+    }
 }

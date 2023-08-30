@@ -15,32 +15,32 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ApiModel(value = "New Task Request", subTypes = NewProjetRequest.Duration.class)
+@ApiModel(value = "New Projet Request", subTypes = NewProjetRequest.Duration.class)
 public class NewProjetRequest {
     @NotBlank
     @NotNull
     @Size(min = 3, max = 25)
-    @ApiModelProperty(notes = "Task name", position = 1, example = "Task name 01")
+    @ApiModelProperty(notes = "Projet name", position = 1, example = "Projet name 01")
     private String name;
-    @ApiModelProperty(notes = "Task description", position = 2, example = "Task description 01")
+    @ApiModelProperty(notes = "Projet description", position = 2, example = "Projet description 01")
     private String description;
 
 
     @NotNull
     @Valid
-    @ApiModelProperty(notes = "Task duration", position = 5)
+    @ApiModelProperty(notes = "Projet duration", position = 5)
     private Duration duration;
 
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    @ApiModel(value = "Task duration", parent = NewProjetRequest.class)
+    @ApiModel(value = "Projet duration", parent = NewProjetRequest.class)
     public static class Duration {
         @NotNull
-        @ApiModelProperty(notes = "Task start date", position = 1, example = "2020-01-01")
+        @ApiModelProperty(notes = "Projet start date", position = 1, example = "2020-01-01")
         private LocalDate startDate;
         @NotNull
-        @ApiModelProperty(notes = "Task end date", position = 2, example = "2020-01-31")
+        @ApiModelProperty(notes = "Projet end date", position = 2, example = "2020-01-31")
         private LocalDate endDate;
     }
 }

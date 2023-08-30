@@ -9,5 +9,5 @@ import java.util.List;
 @Builder
 @Getter
 public class FonctionnalitesViewModel {
-    @Singular("addTaskViewModel") private List<FonctionnaliteViewModel> tasks;
+    @Singular("addFonctionnaliteViewModel") private List<FonctionnaliteViewModel> fonctionnalites;
 }

@@ -16,16 +16,16 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ApiModel(value = "Update Task Request", subTypes = UpdateProjetRequest.Duration.class)
+@ApiModel(value = "Update Projet Request", subTypes = UpdateProjetRequest.Duration.class)
 public class UpdateProjetRequest {
 
     @NotBlank
     @NotNull
     @Size(min = 3, max = 25)
-    @ApiModelProperty(notes = "Updated projet name", position = 1, example = "Updated Task Name")
+    @ApiModelProperty(notes = "Updated projet name", position = 1, example = "Updated Projet Name")
     private String name;
 
-    @ApiModelProperty(notes = "Updated projet description", position = 2, example = "Updated Task Description")
+    @ApiModelProperty(notes = "Updated projet description", position = 2, example = "Updated Projet Description")
     private String description;
 
     @NotNull

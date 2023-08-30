@@ -1,4 +1,4 @@
-/*package com.grantburgess.application.endpoints.Fonctionnalite.updateFonctionnalite;
+package com.grantburgess.application.endpoints.Fonctionnalite.updateFonctionnalite;
 
 
 import io.swagger.annotations.ApiModel;
@@ -16,36 +16,35 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ApiModel(value = "Update Task Request", subTypes = NewUpdateFonctionnaliteRequest.Duration.class)
+@ApiModel(value = "Update Fonctionnalite Request", subTypes = NewUpdateFonctionnaliteRequest.Duration.class)
 public class NewUpdateFonctionnaliteRequest {
 
     @NotBlank
     @NotNull
     @Size(min = 3, max = 25)
-    @ApiModelProperty(notes = "Updated task name", position = 1, example = "Updated Task Name")
+    @ApiModelProperty(notes = "Updated fonctionnalite name", position = 1, example = "Updated Fonctionnalite Name")
     private String name;
 
-    @ApiModelProperty(notes = "Updated task description", position = 2, example = "Updated Task Description")
+    @ApiModelProperty(notes = "Updated fonctionnalite description", position = 2, example = "Updated Fonctionnalite Description")
     private String description;
 
     @NotNull
     @Valid
-    @ApiModelProperty(notes = "Updated task duration", position = 5)
+    @ApiModelProperty(notes = "Updated fonctionnalite duration", position = 5)
     private Duration duration;
 
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    @ApiModel(value = "Updated task duration", parent = NewUpdateFonctionnaliteRequest.class)
+    @ApiModel(value = "Updated fonctionnalite duration", parent = NewUpdateFonctionnaliteRequest.class)
     public static class Duration {
         @NotNull
-        @ApiModelProperty(notes = "Updated task start date", position = 1, example = "2023-01-01")
+        @ApiModelProperty(notes = "Updated fonctionnalite start date", position = 1, example = "2023-01-01")
         private LocalDate startDate;
 
         @NotNull
-        @ApiModelProperty(notes = "Updated task end date", position = 2, example = "2023-12-31")
+        @ApiModelProperty(notes = "Updated fonctionnalite end date", position = 2, example = "2023-12-31")
         private LocalDate endDate;
     }
 }
 
-*/

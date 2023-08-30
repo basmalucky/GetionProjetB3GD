@@ -10,11 +10,13 @@ public interface LotGateway {
     Collection<Lot> getAllLots();
     UUID add(Lot lot);
     Lot getById(UUID id);
-    void update(Lot lot);
+    UUID update(Lot lot);
     void delete(UUID id);
     boolean existsByName(String name);
 
     Collection<Lot> getLotsByProjetId(UUID projetId);
+
+    Collection<Lot> getLotsByLotId(UUID lotId);
 
     interface BadRequest {}
 

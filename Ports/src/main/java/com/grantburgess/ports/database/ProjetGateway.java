@@ -13,22 +13,24 @@ public interface ProjetGateway {
     void delete(UUID id);
 
     boolean existsByName(String name);
+
+   /* Collection<Projet> getLotsByProjetId(UUID projectId);
+
+    Collection<Projet> getProjetsByLotId(UUID projectId);
+*/
     interface BadRequest {}
     public interface NotFound {}
     class ProjetNotFoundException extends RuntimeException implements BadRequest {
     }
-
-    public class projetNameAlreadyExistsException extends RuntimeException implements ProjetGateway.BadRequest {
+    public class projetNotFoundException extends RuntimeException implements NotFound {
+    }
+    public class projectNameAlreadyExistsException extends RuntimeException implements ProjetGateway.BadRequest {
     }
 
-    public class projetStartDateGreaterThanEndDateException extends RuntimeException implements ProjetGateway.BadRequest {
+    public class projectStartDateGreaterThanEndDateException extends RuntimeException implements ProjetGateway.BadRequest {
     }
 
-    public class projetNotFoundException extends RuntimeException implements ProjetGateway.NotFound {
-    }
-
-
-
-    public class projetEndDateCannotBeBeforeCurrentSystemDateException extends RuntimeException implements ProjetGateway.BadRequest {
+    public class projectEndDateCannotBeBeforeCurrentSystemDateException extends RuntimeException implements ProjetGateway.BadRequest {
     }
 }
+

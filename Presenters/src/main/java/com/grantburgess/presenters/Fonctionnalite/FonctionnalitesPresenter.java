@@ -15,8 +15,8 @@ public class FonctionnalitesPresenter extends BaseFonctionnalitePresenter implem
         FonctionnalitesViewModel.FonctionnalitesViewModelBuilder offersViewModelBuilder = FonctionnalitesViewModel.builder();
         responseModel.getFonctionnalites()
                 .stream()
-                .map(BaseFonctionnalitePresenter::mapToTaskViewModel)
-                .forEach(offersViewModelBuilder::addTaskViewModel);
+                .map(BaseFonctionnalitePresenter::mapToFonctionnaliteViewModel)
+                .forEach(offersViewModelBuilder::addFonctionnaliteViewModel);
         viewModel = offersViewModelBuilder.build();
     }
 }

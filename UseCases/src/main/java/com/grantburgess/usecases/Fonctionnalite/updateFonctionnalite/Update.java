@@ -25,14 +25,14 @@ public class Update extends GetFonctionnaliteBase implements UpdateFonctionnalit
         Fonctionnalite fonctionnaliteToUpdate = fonctionnaliteGateway.getById(request.getId());
 System.out.println(fonctionnaliteToUpdate.getId());
         if (fonctionnaliteToUpdate == null) {
-            throw new FonctionnaliteGateway.fonctionnaliteNotFoundException();
+            throw new FonctionnaliteGateway.FonctionnaliteNotFoundException();
         }
 
         // Effectuez les modifications sur la tâche
-        fonctionnaliteToUpdate.setName(request.getName());
+        fonctionnaliteToUpdate.setNom(request.getName());
         fonctionnaliteToUpdate.setDescription(request.getDescription());
-        fonctionnaliteToUpdate.setStartDate(request.getStartDate());
-        fonctionnaliteToUpdate.setEndDate(request.getEndDate());
+        fonctionnaliteToUpdate.setDateDebut(request.getStartDate());
+        fonctionnaliteToUpdate.setDateFin(request.getEndDate());
 
         fonctionnaliteGateway.update(fonctionnaliteToUpdate);
 

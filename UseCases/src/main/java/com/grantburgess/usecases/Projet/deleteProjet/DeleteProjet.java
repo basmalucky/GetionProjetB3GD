@@ -6,7 +6,7 @@ import com.grantburgess.ports.usescases.Projet.delete.DeleteProjetRequest;
 
 
 public class DeleteProjet implements DeleteProjetInputBoundary {
-    private final ProjetGateway ProjetGateway;
+    private final ProjetGateway projetGateway;
 
     public DeleteProjet(ProjetGateway projetGateway) {
         this.projetGateway = projetGateway;

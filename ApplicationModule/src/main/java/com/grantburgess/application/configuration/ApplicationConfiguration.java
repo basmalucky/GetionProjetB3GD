@@ -20,9 +20,9 @@ import com.grantburgess.presenters.Task.TaskUpdatePresenter;
 import com.grantburgess.presenters.Task.TasksPresenter;
 import com.grantburgess.usecases.Task.addTask.AddTask;
 import com.grantburgess.usecases.Task.cancelTask.CancelTask;
-import com.grantburgess.usecases.Task.deletTask.DeleteTask;
+import com.grantburgess.usecases.Task.deleteTask.DeleteTask;
 import com.grantburgess.usecases.Task.get.taskbyid.GetTaskById;
-import com.grantburgess.usecases.Task.get.offers.GetTasks;
+import com.grantburgess.usecases.Task.get.tasks.GetTasks;
 
 import com.grantburgess.usecases.Task.updateTask.Update;
 import org.springframework.boot.autoconfigure.domain.EntityScan;

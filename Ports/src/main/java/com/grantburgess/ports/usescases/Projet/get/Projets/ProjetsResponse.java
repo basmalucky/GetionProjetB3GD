@@ -10,5 +10,5 @@ import java.util.List;
 @Builder
 @Getter
 public class ProjetsResponse {
-    @Singular("addTask") private List<ProjetResponse> tasks;
+    @Singular("addProjet") private List<ProjetResponse> projets;
 }

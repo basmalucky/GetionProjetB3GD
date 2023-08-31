@@ -23,8 +23,9 @@ public class  GetProjetById  extends GetProjetBase implements GetProjectByIdInpu
     public void execute(GetProjetRequest request) {
         Projet offer = offerGateway.getById(request.getId());
 
-        if (offer == null)
+       /* if (offer == null) {
             throw new ProjetGateway.ProjetNotFoundException();
+        }*/
 
         presenter.present(makeOfferResponse(offer, clock));
     }

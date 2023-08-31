@@ -8,14 +8,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.lang.annotation.Repeatable;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Api(value="/fonctionnalite", description="Operations to manipulate functionnalities", tags = "fonctionnalite")
-@Api(value="/lot", description="Operations to manipulate lots", tags = "lot")
-@Api(value="/projet", description="Operations to manipulate projects", tags = "projet")
-@Api(value="/task", description="Operations to manipulate tasks", tags = "task")
+
+@Api(value="/projet", description="Operations to manipulate tasks", tags = "projet")
 public interface BaseEndpoint {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)

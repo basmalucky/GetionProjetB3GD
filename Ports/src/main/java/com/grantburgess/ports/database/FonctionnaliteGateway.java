@@ -16,6 +16,7 @@ public interface FonctionnaliteGateway{
     Collection<Fonctionnalite> getFonctionnalitesByFonctionnaliteId(UUID  fonctionnaliteId);
 
     interface BadRequest {}
+    public interface NotFound {}
 
     class  FonctionnaliteNotFoundException extends RuntimeException implements BadRequest {
 
@@ -26,10 +27,11 @@ public interface FonctionnaliteGateway{
     public class fonctionnaliteStartDateGreaterThanEndDateException extends RuntimeException implements  FonctionnaliteGateway.BadRequest {
     }
 
-
-
-
-
     public class  fonctionnaliteEndDateCannotBeBeforeCurrentSystemDateException extends RuntimeException implements  FonctionnaliteGateway.BadRequest {
     }
+
+
+    public class CannotCancelfonctionnaliteThatHasExpiredException extends RuntimeException implements FonctionnaliteGateway.BadRequest {
+    }
+
 }

@@ -32,5 +32,7 @@ public interface ProjetGateway {
 
     public class projectEndDateCannotBeBeforeCurrentSystemDateException extends RuntimeException implements ProjetGateway.BadRequest {
     }
+    public class CannotCancelprojectThatHasExpiredException extends RuntimeException implements ProjetGateway.BadRequest {
+    }
 }
 

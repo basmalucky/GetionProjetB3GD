@@ -19,6 +19,7 @@ public interface LotGateway {
     Collection<Lot> getLotsByLotId(UUID lotId);
 
     interface BadRequest {}
+    public interface NotFound {}
 
     class LotNotFoundException extends RuntimeException implements BadRequest {
 
@@ -34,5 +35,8 @@ public interface LotGateway {
 
 
     public class lotEndDateCannotBeBeforeCurrentSystemDateException extends RuntimeException implements LotGateway.BadRequest {
+    }
+
+    public class CannotCancellotThatHasExpiredException extends RuntimeException implements LotGateway.BadRequest {
     }
 }

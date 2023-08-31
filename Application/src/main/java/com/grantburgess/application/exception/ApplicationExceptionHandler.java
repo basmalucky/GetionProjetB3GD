@@ -3,6 +3,9 @@ package com.grantburgess.application.exception;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.grantburgess.ports.database.TaskGateway;
+import com.grantburgess.ports.database.FonctionnaliteGateway;
+import com.grantburgess.ports.database.LotGateway;
+import com.grantburgess.ports.database.ProjetGateway;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.lang.annotation.Repeatable;
 import java.text.MessageFormat;
 
 @ControllerAdvice
@@ -23,10 +27,39 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
     private static final String MESSAGE_NOT_READABLE_ERROR_MESSAGE_PATTERN = "Invalid format for property `{0}'";
     private static final String DEFAULT_CLIENT_ERROR_MESSAGE = "A client error occurred";
     private static final String DEFAULT_NOT_FOUND_MESSAGE = "We could not find that entity";
+   // private Object ResponseEntity;
 
     @ExceptionHandler
     @ResponseBody
-    public ResponseEntity<ErrorResponse> handleControllerException(final HttpServletRequest request, final Throwable throwable) {
+    //@Repeatable
+    public ResponseEntity<ErrorResponse> handleControllerException(final HttpServletRequest request, final Throwable throwable){
+
+        if (throwable instanceof FonctionnaliteGateway.BadRequest) {
+            return getErrorResponseForStatus(throwable, HttpStatus.BAD_REQUEST, DEFAULT_CLIENT_ERROR_MESSAGE);
+        } else if (throwable instanceof FonctionnaliteGateway.NotFound) {
+            return getErrorResponseForStatus(throwable, HttpStatus.NOT_FOUND, DEFAULT_NOT_FOUND_MESSAGE);
+        } else {
+            return getDefaultErrorResponse(throwable);
+        }
+       // public ResponseEntity<ErrorResponse> handleControllerException3 (final HttpServletRequest request3, final Throwable throwable3) {
+
+       if (throwable instanceof LotGateway.BadRequest) {
+            return getErrorResponseForStatus(throwable, HttpStatus.BAD_REQUEST, DEFAULT_CLIENT_ERROR_MESSAGE);
+        } else if (throwable instanceof LotGateway.NotFound) {
+            return getErrorResponseForStatus(throwable, HttpStatus.NOT_FOUND, DEFAULT_NOT_FOUND_MESSAGE);
+        } else {
+            return getDefaultErrorResponse(throwable);
+        }
+       // public ResponseEntity<ErrorResponse> handleControllerException1(final HttpServletRequest request1, final Throwable throwable1) {
+
+        if (throwable instanceof ProjetGateway.BadRequest) {
+            return getErrorResponseForStatus(throwable, HttpStatus.BAD_REQUEST, DEFAULT_CLIENT_ERROR_MESSAGE);
+        } else if (throwable instanceof ProjetGateway.NotFound) {
+            return getErrorResponseForStatus(throwable, HttpStatus.NOT_FOUND, DEFAULT_NOT_FOUND_MESSAGE);
+        } else {
+            return getDefaultErrorResponse(throwable);
+        }
+      //  public ResponseEntity<ErrorResponse> handleControllerException2(final HttpServletRequest request2, final Throwable throwable2) {
         if (throwable instanceof TaskGateway.BadRequest) {
             return getErrorResponseForStatus(throwable, HttpStatus.BAD_REQUEST, DEFAULT_CLIENT_ERROR_MESSAGE);
         } else if (throwable instanceof TaskGateway.NotFound) {
@@ -35,6 +68,11 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
             return getDefaultErrorResponse(throwable);
         }
     }
+
+
+
+
+
 
     private ResponseEntity<ErrorResponse> getErrorResponseForStatus(Throwable ex, HttpStatus httpStatus, String defaultMessage) {
         String message = ErrorMessageMap.errors.getOrDefault(ex.getClass(), defaultMessage);

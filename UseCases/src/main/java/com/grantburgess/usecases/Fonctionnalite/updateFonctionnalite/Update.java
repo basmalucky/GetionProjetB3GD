@@ -21,6 +21,7 @@ public class Update extends GetFonctionnaliteBase implements UpdateFonctionnalit
         this.clock = clock;
     }
 
+
     public UpdateFonctionnaliteResponse execute(UpdateFonctionnaliteRequest request) {
         Fonctionnalite fonctionnaliteToUpdate = fonctionnaliteGateway.getById(request.getId());
 System.out.println(fonctionnaliteToUpdate.getId());

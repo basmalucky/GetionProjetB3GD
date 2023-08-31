@@ -22,13 +22,13 @@ public class SwaggerConfiguration  extends WebMvcConfigurationSupport {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.grantburgess.application.endpoints"))
                 //.paths(regex("/api/v1/Tasks.*"))
-               .paths(regex("/api/v1/Projets.*"))
+               .paths(regex("/api/v1/.*"))
                 .build()
                 .apiInfo(metaData());
     }
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Projet REST API")
+                .title("xxx REST API")
                 .description("\"Allows API consumers to create, cancel and query offers for merchants\"")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
